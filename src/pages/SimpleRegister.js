@@ -30,12 +30,18 @@ function SimpleRegister() {
 
         //     return errors
         // }
+        validationSchema:Yup.object({
+            name:Yup.string()
+            .max(15,"Must be 15 characters or less")
+            .required("Required. Enter name"),
+            userName:Yup.string()
+            .max(15,"Must be 15 characters or less")
+            .required("Required. Enter userName"),
+            email:Yup.string()
+            .email("invalid email address")
+            .required("Required. Enter email address"),
+        })
     });
-    validationSchema:Yup.object({
-        name:Yup.string()
-        .max(15,"Must be 15 characters or less")
-        .required("Required. Enter name")
-    })
     // console.log('formik :>> ', formik);
     // console.log(`formik.touched`, formik.touched)
     return (
